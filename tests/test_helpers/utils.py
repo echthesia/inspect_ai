@@ -386,6 +386,10 @@ def ensure_test_package_installed():
             [sys.executable, "-m", "pip", "install", "--no-deps", "tests/test_package"]
         )
 
+        import inspect_ai._util.entrypoints as _ep
+
+        _ep._inspect_ai_eps_loaded_all = False
+
 
 @contextlib.contextmanager
 def keyboard_interrupt(seconds: int) -> Generator[None, None, None]:
